@@ -1,3 +1,7 @@
+* {
+   -webkit-appearance: none;
+}
+
 body {
     text-align: center;
     background-color: SlateGrey;
