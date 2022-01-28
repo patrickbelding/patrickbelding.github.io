@@ -1,3 +1,7 @@
+/**{
+  font-size: 110%;
+}*/
+
 body {
     text-align: center;
     background-color: SlateGrey;
@@ -6,34 +10,43 @@ body {
 p {
     color: white;
     font-family: Arial;
-    font-size: 1.2em;
+    font-size: 3.5em;
     display: inline-block;
-    margin:  20px;
+    margin:  1.25em;
+}
+
+label{
+  font-size: 3.3em;
+}
+
+h1{
+  font-size: 5em;
 }
 
 input {
-  width: 24%;
-  margin: 1.5% 1.5%;
-  height: 2.3em;
+  width: 85%;
+  margin: 2.5%;
+  height: 3em;
   border: none;
-  border-radius: 10px;
+  border-radius: 2em;
   font-family: Arial;
-  font-size: 1.3em;
+  font-size: 3em;
   text-align: center;
   display: block;
 }
 
 input:focus {
     outline: none;
-    border: solid 5px #00FFCE;
+    border: solid .3em #00FFCE;
 }
 
 #greet {
     background-color: PaleVioletRed;
     border:  none;
-    width:  14%;
+    width:  60%;
     color: white;
     font-family: Arial;
+    font-size: 3em;
 }
 
 #greet:hover {
