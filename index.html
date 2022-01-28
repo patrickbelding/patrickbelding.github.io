@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Bud Light Calc</title>
+        <link rel="shortcut icon" type="image/jpg" href="https://toptenliquors.com/app/uploads/2018/06/bud-light-Can.png"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <script language="JavaScript">
+            function showInput() {
+                if (isNaN(parseFloat(document.getElementById("user_input_one").value)) || isNaN(parseFloat(document.getElementById("user_input_two").value)) || isNaN(parseFloat(document.getElementById("user_input_three").value))) {
+                    document.getElementById("display").innerHTML = "Please use numbers";
+                } else {
+                    var myCount = parseFloat(document.getElementById("user_input_one").value);
+                    var myVol = parseFloat(document.getElementById("user_input_two").value);
+                    var myABV = parseFloat(document.getElementById("user_input_three").value);
+
+                    document.getElementById("display").innerHTML = "Equivalent to " + Math.round((myABV / 4.2) * (myVol / 12) * myCount * 100) / 100 + " Bud Lights";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+            <div>
+                <h1>Bud Light Equivalency Calcaulator</h1>
+            </div>
+            <form action="greet">
+                <label><b>Drink size (ounces)</b></label>
+
+                <!-- <input type="text" name="message_two" id="user_input_two" /> -->
+
+                <input type="text" list="size" id="user_input_two" />
+                <datalist id="size">
+                  <option>1.5 ounces - Shot</option>
+                  <option>5 ounces - Wine</option>
+                  <option>12 ounces - Regular Beer</option>
+                  <option>16 ounces - Pint/Tallboy</option>
+                </datalist>
+
+
+                <br />
+                <label><b>% Alcohol</b></label>
+                <input type="text" name="message_two" id="user_input_three" />
+                <br />
+                <label><b>Quantity</b></label>
+                <input type="text" class="active" name="message_one" id="user_input_one" />
+            </form>
+
+            <br />
+            <input type="submit" value="Submit" id="greet" onclick="showInput();" /><br />
+            <label></label>
+            <p><span id="display"></span></p>
+        </center>
+    </body>
+</html>
