@@ -58,9 +58,9 @@
   
   .square {
     border: 2px solid rgb(58, 58, 60);
-    min-width: 60px;
-    min-height: 60px;
-    font-size: 50px;
+    min-width: 2rem;
+    min-height: 2rem;
+    font-size: 1.66rem;
     font-weight: bold;
     color: gainsboro;
     text-transform: uppercase;
