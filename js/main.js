@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
   
           if (guessedWords.length === 6) {
-            window.alert(`Sorry, you have no more guesses! The word is ${word}.`);
+            window.alert(`Sorry, you have no more guesses! The word was ${word}.`);
           }
   
           guessedWords.push([]);
