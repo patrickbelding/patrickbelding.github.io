@@ -43,11 +43,16 @@
             .on('markgeocode', function (e) {
                 // center map on geocoder result
                 map.fitBounds(e.geocode.bbox);
-                // get the latlng of the place
                 var latlng = e.geocode.center;
-                // pop up a form to enter text for the marker
+                var place = e.geocode.name;
                 var form = document.createElement('form');
-                form.innerHTML = '<input type="text" name="name" placeholder="Name" />';
+                // add a label for the input
+                var label = document.createElement('label');
+                label.innerHTML = 'Enter a name for this marker:';
+                form.appendChild(label);
+                // add text display to the form
+                form.innerHTML = '<h3>'+place+'</h3>';
+                form.innerHTML += '<input type="text" name="name" placeholder="Name" />';
                 form.innerHTML += '<input type="text" name="description" placeholder="Description" />';
                 form.innerHTML += '<input type="text" name="url" placeholder="Review" />';
                 form.innerHTML += '<input type="submit" value="Save" />';
