@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+
+        //Example from https://github.com/perliedman/leaflet-control-geocoder  
+        var map = L.map('map').setView([40.7453, -73.9895], 12);
+
+        var osm = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        var geocoder = L.Control.geocoder({
+            defaultMarkGeocode: false
+        })
+            .on('markgeocode', function (e) {
+                // center map on geocoder result
+                map.fitBounds(e.geocode.bbox);
+                // get the latlng of the place
+                var latlng = e.geocode.center;
+                // pop up a form to enter text for the marker
+                var form = document.createElement('form');
+                form.innerHTML = '<input type="text" name="name" placeholder="Name" />';
+                form.innerHTML += '<input type="text" name="description" placeholder="Description" />';
+                form.innerHTML += '<input type="text" name="url" placeholder="URL" />';
+                form.innerHTML += '<input type="submit" value="Save" />';
+                // add the form to the map
+                map.openPopup(form, latlng);
+                // when the form is submitted, add a marker with the entered text
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var name = form.name.value;
+                    var description = form.description.value;
+                    var url = form.url.value;
+                    var marker = L.marker(latlng, {
+                        draggable: true
+                    }).addTo(map);
+                    marker.bindPopup(name + '<br>' + description + '<br>' + url).openPopup();
+                    marker.on('dragend', function (e) {
+                        var marker = e.target;
+                        var position = marker.getLatLng();
+                        marker.setLatLng(position, {
+                            draggable: true
+                        }).bindPopup(name + '<br>' + description + '<br>' + url).openPopup();
+                    });
+                    // close the form
+                    map.closePopup();
+                });
+            })
+            .addTo(map);
+    </script>
+</body>
+</html>
