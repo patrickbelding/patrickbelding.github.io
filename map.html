@@ -14,29 +14,55 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
     <title>Map!</title>
     <style>
         #map {
             height: 100%;
             width: 100%;
             position: absolute;
-            top: 0;
+            top: 10px;
             left: 0;
             overflow: hidden;
+        }
+    </style>
+    <style>
+        #credit {
+            position: absolute;
+            top: 0px;
+            bottom: 10px;
+            left: 50%;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
         }
     </style>
 
 </head>
 
 <body>
+    <div id="credit">
+        work in progress -pmb
+    </div>
+
     <div id="map"></div>
     <script>
 
         //Example from https://github.com/perliedman/leaflet-control-geocoder  
-        var map = L.map('map').setView([40.7453, -73.9895], 12);
+        var map = L.map('map', { attributionControl: false }).setView([40.7453, -73.9895], 13);
 
-        var osm = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        // var osm = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoibW9iYmFkZSIsImEiOiJjbDI3NWZvMTUwNW10M3ByMDd4a3NpajAxIn0.ml9pe8aHczvKuqV7TnLRsA'
+        }).addTo(map);
+
+        // locate the user
+        // map.locate({setView: true, maxZoom: 16});
 
         var geocoder = L.Control.geocoder({
             defaultMarkGeocode: false,
