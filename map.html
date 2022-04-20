@@ -46,6 +46,8 @@
                 map.fitBounds(e.geocode.bbox);
                 var latlng = e.geocode.center;
                 var place = e.geocode.name;
+                // trim place name to first line
+                place = place.split(',')[0];
                 var form = document.createElement('form');
                 // add a label for the input
                 var label = document.createElement('label');
