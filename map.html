@@ -51,7 +51,7 @@
                 label.innerHTML = 'Enter a name for this marker:';
                 form.appendChild(label);
                 // add text display to the form
-                form.innerHTML = '<h3>'+place+'</h3>';
+                form.innerHTML = '<h3>' + place + '</h3>';
                 form.innerHTML += '<input type="text" name="name" placeholder="Name" />';
                 form.innerHTML += '<input type="text" name="description" placeholder="Description" />';
                 form.innerHTML += '<input type="text" name="url" placeholder="Review" />';
@@ -77,9 +77,13 @@
                     });
                     // close the form
                     map.closePopup();
+                    var geocoder = L.Control.geocoder({
+                        defaultMarkGeocode: false
+                    })
                 });
             })
             .addTo(map);
     </script>
 </body>
+
 </html>
