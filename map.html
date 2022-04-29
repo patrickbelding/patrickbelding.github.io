@@ -113,21 +113,33 @@
             // get the center of the map
 
             var geocoder = L.Control.geocoder({
-                geocoder: new L.Control.Geocoder.Nominatim({
+
+                // use MapBox's geocoding API
+                geocoder: L.Control.Geocoder.mapbox({
                     geocodingQueryParams: {
-                        // countrycodes: 'us',
-                        viewbox: bbox.toBBoxString(),
-                        bounded: 1,
-                        limit: 5,
-                        // addressdetails: 1,
-                        // extratags: 1,
-                        // namedetails: 1,
+                        access_token: 'pk.eyJ1IjoibW9iYmFkZSIsImEiOiJjbDI3NWZvMTUwNW10M3ByMDd4a3NpajAxIn0.ml9pe8aHczvKuqV7TnLRsA',
+                        countries: 'us',
+                        flyTo: true
 
                     }
                 }),
+
+                // geocoder: new L.Control.Geocoder.Nominatim({
+                //     geocodingQueryParams: {
+                //         // countrycodes: 'us',
+                //         viewbox: bbox.toBBoxString(),
+                //         bounded: 1,
+                //         limit: 5,
+                //         // addressdetails: 1,
+                //         // extratags: 1,
+                //         // namedetails: 1,
+
+                //     }
+                // })
+                
                 defaultMarkGeocode: false,
                 showResultIcons: true,
-                suggestMinLength: 3,
+                suggestMinLength: 1,
                 suggestTimeout: 250,
                 // only search in the united states and canada
 
@@ -201,7 +213,7 @@
                         var marker = L.marker(latlng, {
                             draggable: true
                         }).addTo(map);
-                        marker.bindPopup('<h3>' + place + '</h3>' + '<br>' + name + '<br>' + date + '<br>' + rating + '<br>' + atmosphere + '<br>' + review).openPopup();
+                        marker.bindPopup('<h3>' + place + '</h3>' + name + '<br>' + date + '<br>' + rating + '<br>' + atmosphere + '<br>' + review).openPopup();
                         marker.on('dragend', function (e) {
                             var marker = e.target;
                             var position = marker.getLatLng();
