@@ -108,7 +108,23 @@
             // locate the user
             // map.locate({setView: true, maxZoom: 16});
 
+            // get bbox of the map
+            var bbox = map.getBounds();
+            // get the center of the map
+
             var geocoder = L.Control.geocoder({
+                geocoder: new L.Control.Geocoder.Nominatim({
+                    geocodingQueryParams: {
+                        // countrycodes: 'us',
+                        viewbox: bbox.toBBoxString(),
+                        bounded: 1,
+                        limit: 5,
+                        // addressdetails: 1,
+                        // extratags: 1,
+                        // namedetails: 1,
+
+                    }
+                }),
                 defaultMarkGeocode: false,
                 showResultIcons: true,
                 suggestMinLength: 3,
