@@ -203,8 +203,7 @@
 
                         var rating = document.querySelector('select[name=rating]').value;
                         // conver the rating to ascii stars
-                        var rating = '\u2605'.repeat(rating);
-                        // var rating = `Rating: ${rating}`;
+                        var rating = `${'\u2605'.repeat(rating)}${'\u2606'.repeat(5 - rating)}`;
 
                         var name = `Submitter: ${username}`;
                         var review = `Review: ${form.review.value}`;
