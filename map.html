@@ -37,14 +37,21 @@
         function pw() {
             // set the z index to be on top of the map
             document.getElementById("map").style.zIndex = "-2";
+
+            // add a header to the page
+            var header = document.createElement("h3");
+            // header.innerHTML = "password = food";
+            document.body.appendChild(header);
             // create a form
             var form = document.createElement("form");
             // add a text input to the form
             form.innerHTML = '<input type="text" name="username" placeholder="Name" />';
             // add a line break
             form.innerHTML += '<br>';
+            form.innerHTML += '<p style="margin:3px;"></p>';
             form.innerHTML += '<input type="password" name="password" placeholder="Password" />';
             form.innerHTML += '<br>';
+            form.innerHTML += '<p style="margin:10px;"></p>';
             // add a submit button to the form
             form.innerHTML += '<input type="submit" value="Submit" />';
             // make the form look nice
@@ -72,6 +79,7 @@
                 if (password == 'food') {
                     // delete the form
                     document.body.removeChild(form);
+                    document.body.removeChild(header);
                     canva(username);
                 } else {
                     // empty the text box
@@ -104,7 +112,8 @@
                 defaultMarkGeocode: false,
                 showResultIcons: true,
                 suggestMinLength: 3,
-                suggestTimeout: 250
+                suggestTimeout: 250,
+                // only search in the united states and canada
 
             })
                 .on('markgeocode', function (e) {
@@ -120,7 +129,7 @@
                     // create a text area with 4 lines 
                     form.innerHTML += '<textarea name="review" rows="4" cols="30" placeholder="Review"></textarea>';
                     form.innerHTML += '<br>';
-                    form.innerHTML += '<br>';
+                    form.innerHTML += '<p style="margin:5px;"></p>';
                     // add a dropdown menu to the form
                     form.innerHTML += '<label for="atmosphere">Choose Atmosphere:</label><br>\
                     <select name="atmosphere" id="atmosphere">\
@@ -133,15 +142,29 @@
 
                     // add a radio button to the form
                     form.innerHTML += '<br>';
-                    form.innerHTML += '<br>';
-                    form.innerHTML += '<label for="rating">Overall Rating</label>';
-                    form.innerHTML += '<br>';
-                    // make a large text box
-                    form.innerHTML += '<input type="radio" name="rating" value="1" /> 1';
-                    form.innerHTML += '<input type="radio" name="rating" value="2" /> 2';
-                    form.innerHTML += '<input type="radio" name="rating" value="3" /> 3';
-                    form.innerHTML += '<input type="radio" name="rating" value="4" /> 4';
-                    form.innerHTML += '<input type="radio" name="rating" value="5" /> 5';
+                    form.innerHTML += '<p style="margin:5px;"></p>';
+
+
+                    form.innerHTML += '<label for="rating">Overall Rating:</label><br>\
+                    <select name="rating" id="rating">\
+                    <option value="1">1</option>\
+                    <option value="2">2</option>\
+                    <option value="3">3</option>\
+                    <option value="4">4</option>\
+                    <option value="5">5</option>\
+                    </select>';
+
+                    form.innerHTML += '<p style="margin:5px;"></p>';
+
+
+
+                    // form.innerHTML += '<label for="rating">Overall Rating</label>';
+                    // form.innerHTML += '<br>';
+                    // form.innerHTML += '<input type="radio" name="rating" value="1" /> 1';
+                    // form.innerHTML += '<input type="radio" name="rating" value="2" /> 2';
+                    // form.innerHTML += '<input type="radio" name="rating" value="3" /> 3';
+                    // form.innerHTML += '<input type="radio" name="rating" value="4" /> 4';
+                    // form.innerHTML += '<input type="radio" name="rating" value="5" /> 5';
                     form.innerHTML += '<br>';
                     form.innerHTML += '<input type="submit" value="Save" />';
                     // add the form to the map
@@ -158,20 +181,21 @@
                         var date = `Date: ${date}`;
 
 
-                        // read the values of the radio buttons
-                        var rating = document.querySelector('input[name=rating]:checked').value;
-                        var rating = `Rating: ${rating}`;
-
                         // get atmoshere value
                         var atmosphere = document.querySelector('select[name=atmosphere]').value;
                         var atmosphere = `Atmosphere: ${atmosphere}`;
+
+                        var rating = document.querySelector('select[name=rating]').value;
+                        // conver the rating to ascii stars
+                        var rating = '\u2605'.repeat(rating);
+                        // var rating = `Rating: ${rating}`;
 
                         var name = `Submitter: ${username}`;
                         var review = `Review: ${form.review.value}`;
                         var marker = L.marker(latlng, {
                             draggable: true
                         }).addTo(map);
-                        marker.bindPopup(name + '<br>' + date + '<br>' + atmosphere + '<br>' + review + '<br>' + rating).openPopup();
+                        marker.bindPopup(name + '<br>' + date + '<br>' + rating + '<br>' + atmosphere + '<br>' + review).openPopup();
                         marker.on('dragend', function (e) {
                             var marker = e.target;
                             var position = marker.getLatLng();
