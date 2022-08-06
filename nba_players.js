@@ -2579,7 +2579,7 @@ for (let i = 0; i < randomPlayers.length; i++) {
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 let count = 0;
-const questionTime = 300; // 5min
+const questionTime = 15; // 5min
 const gaugeWidth = 150; // 150px
 const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
