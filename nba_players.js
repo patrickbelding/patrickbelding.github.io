@@ -2516,7 +2516,7 @@ function getRandom() {
 
 // loop 10 times to get 10 random players
 let randomPlayers = [];
-for (let i = 0; i < 39; i++) {
+for (let i = 0; i < 10; i++) {
     randomPlayers.push(getRandom());
 }
 
