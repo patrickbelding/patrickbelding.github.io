@@ -680,20 +680,12 @@ const players_list = [
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481528@3x.png"
     },
     {
-        "fullName": "Owen Power",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482671@3x.png"
-    },
-    {
         "fullName": "Jonathan Drouin",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8477494@3x.png"
     },
     {
         "fullName": "Sam Montembeault",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8478470@3x.png"
-    },
-    {
-        "fullName": "Juraj Slafkovsky",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8483515@3x.png"
     },
     {
         "fullName": "Carey Price",
@@ -848,10 +840,6 @@ const players_list = [
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8480801@3x.png"
     },
     {
-        "fullName": "Jake Sanderson",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482105@3x.png"
-    },
-    {
         "fullName": "Tim St\u00fctzle",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482116@3x.png"
     },
@@ -976,16 +964,8 @@ const players_list = [
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8480820@3x.png"
     },
     {
-        "fullName": "Pontus Holmberg",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8480995@3x.png"
-    },
-    {
         "fullName": "Nicholas Robertson",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481582@3x.png"
-    },
-    {
-        "fullName": "Nicholas Abruzzese",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481720@3x.png"
     },
     {
         "fullName": "Dmitry Ovchinnikov",
@@ -1438,10 +1418,6 @@ const players_list = [
     {
         "fullName": "Reese Johnson",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481147@3x.png"
-    },
-    {
-        "fullName": "Alex Vlasic",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481568@3x.png"
     },
     {
         "fullName": "Robby Fabbri",
@@ -2028,10 +2004,6 @@ const players_list = [
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481617@3x.png"
     },
     {
-        "fullName": "Andrei Kuzmenko",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8483808@3x.png"
-    },
-    {
         "fullName": "Luke Schenn",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8474568@3x.png"
     },
@@ -2548,10 +2520,6 @@ const players_list = [
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481701@3x.png"
     },
     {
-        "fullName": "Thomas Bordeleau",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482133@3x.png"
-    },
-    {
         "fullName": "Alexander Barabanov",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482222@3x.png"
     },
@@ -2574,10 +2542,6 @@ const players_list = [
     {
         "fullName": "Jake Christiansen",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481161@3x.png"
-    },
-    {
-        "fullName": "Kent Johnson",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482660@3x.png"
     },
     {
         "fullName": "Jakub Voracek",
@@ -2662,10 +2626,6 @@ const players_list = [
     {
         "fullName": "Cole Sillinger",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482705@3x.png"
-    },
-    {
-        "fullName": "Nick Blankenburg",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8483565@3x.png"
     },
     {
         "fullName": "Filip Gustavsson",
@@ -2904,10 +2864,6 @@ const players_list = [
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8478872@3x.png"
     },
     {
-        "fullName": "Cam Dineen",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8479341@3x.png"
-    },
-    {
         "fullName": "Clayton Keller",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8479343@3x.png"
     },
@@ -2918,10 +2874,6 @@ const players_list = [
     {
         "fullName": "Troy Stecher",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8479442@3x.png"
-    },
-    {
-        "fullName": "Jack McBain",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8480855@3x.png"
     },
     {
         "fullName": "Nathan Smith",
