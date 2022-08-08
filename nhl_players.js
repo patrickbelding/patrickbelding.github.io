@@ -968,10 +968,6 @@ const players_list = [
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8481582@3x.png"
     },
     {
-        "fullName": "Dmitry Ovchinnikov",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482488@3x.png"
-    },
-    {
         "fullName": "Alex Steeves",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8482634@3x.png"
     },
@@ -2874,10 +2870,6 @@ const players_list = [
     {
         "fullName": "Troy Stecher",
         "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8479442@3x.png"
-    },
-    {
-        "fullName": "Nathan Smith",
-        "image": "https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8480979@3x.png"
     },
     {
         "fullName": "Vladislav Kolyachonok",
