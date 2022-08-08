@@ -10806,6 +10806,7 @@ for (let i = 0; i < randomPlayers.length; i++) {
     if (randomChoice === 0) {
         questions.push({
             question: "Who is this player?",
+            correctAnswer: randomName,
             imgSrc: randomImage,
             choiceA: randomName,
             choiceB: getRandom()[1],
@@ -10817,6 +10818,7 @@ for (let i = 0; i < randomPlayers.length; i++) {
     else if (randomChoice === 1) {
         questions.push({
             question: "Who is this player?",
+            correctAnswer: randomName,
             imgSrc: randomImage,
             choiceA: getRandom()[1],
             choiceB: randomName,
@@ -10828,6 +10830,7 @@ for (let i = 0; i < randomPlayers.length; i++) {
     else if (randomChoice === 2) {
         questions.push({
             question: "Who is this player?",
+            correctAnswer: randomName,
             imgSrc: randomImage,
             choiceA: getRandom()[1],
             choiceB: getRandom()[1],
@@ -10839,6 +10842,7 @@ for (let i = 0; i < randomPlayers.length; i++) {
     else {
         questions.push({
             question: "Who is this player?",
+            correctAnswer: randomName,
             imgSrc: randomImage,
             choiceA: getRandom()[1],
             choiceB: getRandom()[1],
@@ -10918,33 +10922,56 @@ function renderCounter() {
 function checkAnswer(answer) {
     if (answer == questions[runningQuestion].correct) {
         // answer is correct
-        score++;
         // change progress color to green
         answerIsCorrect();
+        score++;
     } else {
         // answer is wrong
-        // change progress color to red
+        // run the answer is wrong function and then wait for 10 seconds
         answerIsWrong();
-    }
-    count = 0;
-    if (runningQuestion < lastQuestion) {
-        runningQuestion++;
-        renderQuestion();
-    } else {
-        // end the quiz and show the score
-        clearInterval(TIMER);
-        scoreRender();
     }
 }
 
 // answer is correct
 function answerIsCorrect() {
     document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
+
+    new Swal({
+        title: "Correct!",
+        text: "The correct answer was " + questions[runningQuestion].correctAnswer,
+        icon: "success",
+    }).then(() => {
+        count = 0;
+        if (runningQuestion < lastQuestion) {
+            runningQuestion++;
+            renderQuestion();
+        } else {
+            // end the quiz and show the score
+            clearInterval(TIMER);
+            scoreRender();
+        }
+    });
 }
 
 // answer is Wrong
 function answerIsWrong() {
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
+    // alert using sweetalert2
+    new Swal({
+        title: "Wrong!",
+        text: "The correct answer was " + questions[runningQuestion].correctAnswer,
+        icon: "error",
+    }).then(() => {
+        count = 0;
+        if (runningQuestion < lastQuestion) {
+            runningQuestion++;
+            renderQuestion();
+        } else {
+            // end the quiz and show the score
+            clearInterval(TIMER);
+            scoreRender();
+        }
+    });
 }
 
 // score render
