@@ -400,11 +400,6 @@ const players_list = [
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1628427.png"
     },
     {
-        "PLAYER_FULL_NAME": "Devin Cannady",
-        "COLLEGE": "Princeton",
-        "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1629962.png"
-    },
-    {
         "PLAYER_FULL_NAME": "Clint Capela",
         "COLLEGE": "Elan Chalon",
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/203991.png"
@@ -975,11 +970,6 @@ const players_list = [
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/201588.png"
     },
     {
-        "PLAYER_FULL_NAME": "Malcolm Hill",
-        "COLLEGE": "Illinois",
-        "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1630792.png"
-    },
-    {
         "PLAYER_FULL_NAME": "Aaron Holiday",
         "COLLEGE": "UCLA",
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1628988.png"
@@ -1220,11 +1210,6 @@ const players_list = [
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1628379.png"
     },
     {
-        "PLAYER_FULL_NAME": "Braxton Key",
-        "COLLEGE": "Virginia",
-        "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1630296.png"
-    },
-    {
         "PLAYER_FULL_NAME": "Corey Kispert",
         "COLLEGE": "Gonzaga",
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1630557.png"
@@ -1388,11 +1373,6 @@ const players_list = [
         "PLAYER_FULL_NAME": "Kyle Lowry",
         "COLLEGE": "Villanova",
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/200768.png"
-    },
-    {
-        "PLAYER_FULL_NAME": "Gabriel Lundberg",
-        "COLLEGE": "                                   ",
-        "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1630994.png"
     },
     {
         "PLAYER_FULL_NAME": "Timothe Luwawu-Cabarrot",
@@ -1588,11 +1568,6 @@ const players_list = [
         "PLAYER_FULL_NAME": "Moses Moody",
         "COLLEGE": "Arkansas",
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1630541.png"
-    },
-    {
-        "PLAYER_FULL_NAME": "Xavier Moon",
-        "COLLEGE": "Morehead State",
-        "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1629875.png"
     },
     {
         "PLAYER_FULL_NAME": "Ja Morant",
@@ -1990,11 +1965,6 @@ const players_list = [
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1626156.png"
     },
     {
-        "PLAYER_FULL_NAME": "Matt Ryan",
-        "COLLEGE": "Tennessee-Chattanooga",
-        "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1630346.png"
-    },
-    {
         "PLAYER_FULL_NAME": "Domantas Sabonis",
         "COLLEGE": "Gonzaga",
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1627734.png"
@@ -2378,11 +2348,6 @@ const players_list = [
         "PLAYER_FULL_NAME": "Lindell Wigginton",
         "COLLEGE": "Iowa State",
         "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1629623.png"
-    },
-    {
-        "PLAYER_FULL_NAME": "Brandon Williams",
-        "COLLEGE": "Arizona",
-        "IMAGE": "https://cdn.nba.com/headshots/nba/latest/260x190/1630314.png"
     },
     {
         "PLAYER_FULL_NAME": "Grant Williams",
