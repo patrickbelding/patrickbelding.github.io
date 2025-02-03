@@ -1,125 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Beer to Bud Light Converter</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-start: #1e3c72;
+      --bg-end: #2a5298;
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --accent: #ff416c;
+      --accent-alt: #ff4b2b;
+      --text-light: #ffffff;
+    }
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+    
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      background-size: 400% 400%;
+      animation: bgAnimation 15s ease infinite;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       padding: 20px;
-      color: #333;
+      overflow: hidden;
     }
-    .card {
-      background: #ffffffdd;
-      border-radius: 10px;
-      padding: 30px;
+    
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .container {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      padding: 40px;
       max-width: 400px;
       width: 100%;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      animation: cardEntrance 1s ease forwards;
     }
-    .card h1 {
+    
+    @keyframes cardEntrance {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    h1 {
       text-align: center;
-      margin-bottom: 20px;
-      color: #1e3c72;
+      font-size: 2rem;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      /* New one-time entrance animation */
+      animation: titleEntrance 1s ease-out forwards;
     }
+    
+    @keyframes titleEntrance {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
+    
     .form-group label {
       display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--text-light);
     }
+    
     .form-group input {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
+      padding: 12px 15px;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--text-light);
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
+    
+    .form-group input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .form-group input:focus {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
     button {
+      position: relative;
+      overflow: hidden;
       width: 100%;
-      padding: 12px;
-      background: #ffcc00;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-light);
+      background: linear-gradient(135deg, var(--accent), var(--accent-alt));
       border: none;
-      border-radius: 5px;
-      font-size: 1.1em;
-      font-weight: 600;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s ease;
-      margin-top: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+    
     button:hover {
-      background: #ffdd33;
+      transform: scale(1.03);
+      box-shadow: 0 4px 15px rgba(255, 65, 108, 0.5);
     }
+    
+    button:active {
+      transform: scale(0.98);
+    }
+    
+    /* Ripple effect */
+    button .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      transform: scale(0);
+      animation: rippleEffect 0.6s linear;
+      pointer-events: none;
+    }
+    
+    @keyframes rippleEffect {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+    
     .result {
-      margin-top: 20px;
+      margin-top: 30px;
       text-align: center;
-      font-size: 1.2em;
-      font-weight: 600;
-      color: #1e3c72;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-light);
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
     }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
     @media (max-width: 480px) {
-      .card {
+      .container {
         padding: 20px;
+      }
+      h1 {
+        font-size: 1.6rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="container">
     <h1>Beer to Bud Light</h1>
-    <form id="converter-form">
+    <form id="beer-form">
       <div class="form-group">
         <label for="abv">Beer ABV (%)</label>
-        <input type="number" id="abv" name="abv" step="0.1" required>
+        <input type="number" id="abv" name="abv" placeholder="e.g., 5.0" step="0.1" required>
       </div>
       <div class="form-group">
         <label for="size">Size (oz)</label>
-        <input type="number" id="size" name="size" step="0.1" required>
+        <input type="number" id="size" name="size" placeholder="e.g., 16" step="0.1" required>
       </div>
       <div class="form-group">
         <label for="quantity">Quantity</label>
-        <input type="number" id="quantity" name="quantity" min="1" required>
+        <input type="number" id="quantity" name="quantity" placeholder="e.g., 2" min="1" required>
       </div>
       <button type="submit">Calculate</button>
     </form>
     <div class="result" id="result"></div>
   </div>
-  
+
   <script>
-    document.getElementById('converter-form').addEventListener('submit', function(e) {
+    // Form Calculation Logic
+    const form = document.getElementById('beer-form');
+    const resultDiv = document.getElementById('result');
+    // Bud Light: 4.2% ABV, 12oz serving => approx 0.504 oz pure alcohol
+    const BUD_LIGHT_ALCOHOL = (4.2 / 100) * 12;
+
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      
       const abv = parseFloat(document.getElementById('abv').value);
       const size = parseFloat(document.getElementById('size').value);
       const quantity = parseInt(document.getElementById('quantity').value, 10);
       
       if (isNaN(abv) || isNaN(size) || isNaN(quantity) || quantity <= 0) {
-        document.getElementById('result').textContent = 'Please enter valid inputs.';
+        resultDiv.textContent = 'Please enter valid inputs.';
+        resultDiv.style.animation = 'fadeIn 0.5s ease forwards';
         return;
       }
       
-      // Bud Light assumed values: 4.2% ABV and 12 oz serving
-      const budLightAlcohol = (4.2 / 100) * 12; // ≈ 0.504 oz of pure alcohol
-      
       const totalAlcohol = (abv / 100) * size * quantity;
-      const equivalentBudLights = totalAlcohol / budLightAlcohol;
-      
-      document.getElementById('result').textContent =
-        equivalentBudLights.toFixed(2) + ' Bud Light(s) equivalent.';
+      const equivalentBudLights = totalAlcohol / BUD_LIGHT_ALCOHOL;
+      resultDiv.textContent = `${equivalentBudLights.toFixed(2)} Bud Light(s) equivalent.`;
+
+      // Restart result animation
+      resultDiv.style.animation = 'none';
+      void resultDiv.offsetWidth;
+      resultDiv.style.animation = 'fadeIn 0.5s ease forwards';
+    });
+
+    // Button Ripple Effect
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', function (e) {
+        const rect = this.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        this.appendChild(ripple);
+        ripple.addEventListener('animationend', () => {
+          ripple.remove();
+        });
+      });
     });
   </script>
 </body>
