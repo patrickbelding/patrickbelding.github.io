@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beer to Bud Light Converter</title>
+  <title>Bud Light Equivalency Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -63,8 +63,7 @@
       text-align: center;
       font-size: 2rem;
       color: var(--text-light);
-      margin-bottom: 30px;
-      /* New one-time entrance animation */
+      margin-bottom: 10px;
       animation: titleEntrance 1s ease-out forwards;
     }
     
@@ -79,6 +78,15 @@
       }
     }
     
+    .description {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-light);
+      opacity: 0.9;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+    
     .form-group {
       margin-bottom: 20px;
     }
@@ -90,7 +98,36 @@
       color: var(--text-light);
     }
     
-    .form-group input {
+    /* Container for input with percent sign */
+    .input-container {
+      position: relative;
+    }
+    
+    .input-container input {
+      width: 100%;
+      padding: 12px 15px;
+      padding-right: 40px; /* extra space for the percent sign */
+      font-size: 1rem;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--text-light);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .input-percent {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    
+    /* Default styling for other inputs */
+    .form-group input:not(.input-percent) {
       width: 100%;
       padding: 12px 15px;
       font-size: 1rem;
@@ -179,21 +216,27 @@
 </head>
 <body>
   <div class="container">
-    <h1>Beer to Bud Light</h1>
+    <h1>Bud Light Equivalency Calculator</h1>
+    <p class="description">
+      Enter your beverage details below to calculate how many Bud Lights your drink is equivalent to.
+    </p>
     <form id="beer-form">
       <div class="form-group">
-        <label for="abv">Beer ABV (%)</label>
-        <input type="number" id="abv" name="abv" placeholder="e.g., 5.0" step="0.1" required>
+        <label for="abv">Alcohol Percentage</label>
+        <div class="input-container">
+          <input type="number" id="abv" name="abv" placeholder="5.0" step="0.1" min="0" required inputmode="decimal">
+          <span class="input-percent">%</span>
+        </div>
       </div>
       <div class="form-group">
-        <label for="size">Size (oz)</label>
-        <input type="number" id="size" name="size" placeholder="e.g., 16" step="0.1" required>
+        <label for="size">Serving Size (oz)</label>
+        <input type="number" id="size" name="size" placeholder="16" step="0.1" min="0" required inputmode="decimal">
       </div>
       <div class="form-group">
         <label for="quantity">Quantity</label>
-        <input type="number" id="quantity" name="quantity" placeholder="e.g., 2" min="1" required>
+        <input type="number" id="quantity" name="quantity" placeholder="2" min="1" required inputmode="numeric">
       </div>
-      <button type="submit">Calculate</button>
+      <button type="submit">Calculate Equivalency</button>
     </form>
     <div class="result" id="result"></div>
   </div>
@@ -219,7 +262,7 @@
       
       const totalAlcohol = (abv / 100) * size * quantity;
       const equivalentBudLights = totalAlcohol / BUD_LIGHT_ALCOHOL;
-      resultDiv.textContent = `${equivalentBudLights.toFixed(2)} Bud Light(s) equivalent.`;
+      resultDiv.textContent = `Equivalent to ${equivalentBudLights.toFixed(2)} Bud Light(s).`;
 
       // Restart result animation
       resultDiv.style.animation = 'none';
