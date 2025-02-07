@@ -204,6 +204,19 @@
       to { opacity: 1; }
     }
     
+    /* Bud Light Images Container */
+    #bud-lights {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    #bud-lights img {
+      width: 50px; /* adjust as needed */
+      height: auto;
+      margin: 2px;
+      vertical-align: middle;
+    }
+    
     @media (max-width: 480px) {
       .container {
         padding: 20px;
@@ -239,14 +252,18 @@
       <button type="submit">Calculate Equivalency</button>
     </form>
     <div class="result" id="result"></div>
+    <div id="bud-lights"></div>
   </div>
 
   <script>
     // Form Calculation Logic
     const form = document.getElementById('beer-form');
     const resultDiv = document.getElementById('result');
+    const budLightsDiv = document.getElementById('bud-lights');
     // Bud Light: 4.2% ABV, 12oz serving => approx 0.504 oz pure alcohol
     const BUD_LIGHT_ALCOHOL = (4.2 / 100) * 12;
+    const budLightUrl = "https://raw.githubusercontent.com/patrickbelding/patrickbelding.github.io/refs/heads/main/bl1.png";
+    const imageWidth = 50; // pixels
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -256,6 +273,7 @@
       
       if (isNaN(abv) || isNaN(size) || isNaN(quantity) || quantity <= 0) {
         resultDiv.textContent = 'Please enter valid inputs.';
+        budLightsDiv.innerHTML = '';
         resultDiv.style.animation = 'fadeIn 0.5s ease forwards';
         return;
       }
@@ -263,6 +281,39 @@
       const totalAlcohol = (abv / 100) * size * quantity;
       const equivalentBudLights = totalAlcohol / BUD_LIGHT_ALCOHOL;
       resultDiv.textContent = `Equivalent to ${equivalentBudLights.toFixed(2)} Bud Light(s).`;
+
+      // Clear previous bud light images
+      budLightsDiv.innerHTML = '';
+
+      // Calculate full images and fractional part
+      const fullCount = Math.floor(equivalentBudLights);
+      const fraction = equivalentBudLights - fullCount;
+
+      // Append full bud light images
+      for (let i = 0; i < fullCount; i++) {
+        const img = document.createElement('img');
+        img.src = budLightUrl;
+        img.alt = 'Bud Light';
+        img.width = imageWidth;
+        budLightsDiv.appendChild(img);
+      }
+
+      // Append fractional bud light image if needed
+      if (fraction > 0.01) {
+        const container = document.createElement('div');
+        container.style.display = 'inline-block';
+        container.style.width = (fraction * imageWidth) + 'px';
+        container.style.height = 'auto';
+        container.style.overflow = 'hidden';
+        container.style.verticalAlign = 'middle';
+
+        const img = document.createElement('img');
+        img.src = budLightUrl;
+        img.alt = 'Bud Light';
+        img.width = imageWidth;
+        container.appendChild(img);
+        budLightsDiv.appendChild(container);
+      }
 
       // Restart result animation
       resultDiv.style.animation = 'none';
